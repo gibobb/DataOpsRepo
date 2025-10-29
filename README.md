@@ -56,9 +56,11 @@ SSH_TUNNEL_ENABLE=true
 SSH_TUNNEL_HOST=          # Remote SSH host
 SSH_TUNNEL_USER=          # SSH username
 SSH_TUNNEL_PASS=          # SSH password
+ssh_TUNNEL_KEY=		  # SSH Key Path
 SSH_TUNNEL_PORT=          # SSH port
 SSH_TUNNEL_LOCAL=         # Local port for DB forwarding
 DB_REMOTE_PORT=           # Remote DB port
+SSH_AUTH_METHOD=	  # Auth Method key or password
 ```
 
 > 💡 You can copy `.env.example` to `.env` and adjust the values as needed:
@@ -74,7 +76,7 @@ cp .env.example .env
 From your script directory (e.g. `/home/scripts`):
 ```bash
 cd /home/scripts
-./backup
+./backup_db
 ```
 
 If the `.env` file is properly configured, the script will:
@@ -90,7 +92,7 @@ If the `.env` file is properly configured, the script will:
 To automate the backup daily at **19:16 (7:16 PM)**, add this cron job:
 
 ```bash
-16 19 * * * cd /home/scripts && ./backup
+16 19 * * * cd /home/scripts && ./backup_db
 ```
 
 You can edit your cron jobs using:
